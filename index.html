@@ -8,7 +8,10 @@
 
     <title>Fotooss D1screttaass</title>
 
-    <link rel="preconnect" href="https://i.postimg.cc">
+    <!-- PRECARGA DE ALTA PRIORIDAD PARA EL GIF DE FONDO -->
+    <link rel="preload" href="https://i.postimg.cc/q7gqN9k1/Microsoft-Teams-video-(2).gif" as="image" type="image/gif" fetchpriority="high">
+
+    <link rel="preconnect" href="https://i.postimg.cc" crossorigin>
     <link rel="preconnect" href="https://cdn.smrt-content.com">
 
     <meta content="https://i.imgur.com/RciuLqc.jpeg" property="og:image">
@@ -43,6 +46,7 @@
             height: 100vh;
             object-fit: cover;
             z-index: 0;
+            will-change: transform;
         }
 
         /* Capa oscura sobre el fondo para resaltar el texto */
@@ -52,7 +56,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.55);
+            background: rgba(0, 0, 0, 0.65);
             z-index: 1;
         }
 
@@ -61,81 +65,85 @@
             position: relative;
             z-index: 2;
             width: 100%;
-            max-width: 440px;
+            max-width: 520px;
             padding: 20px;
             margin: auto;
         }
 
         .step-block {
-            background: rgba(18, 18, 18, 0.85);
-            border-radius: 16px;
-            padding: 30px 20px;
+            background: rgba(18, 18, 18, 0.92);
+            border-radius: 20px;
+            padding: 35px 25px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
+        /* Texto principal con tamaño de fuente grande */
         .question-title {
-            font-size: 1.15rem;
+            font-size: 1.6rem;
             line-height: 1.4;
-            font-weight: 600;
-            margin-bottom: 22px;
+            font-weight: 700;
+            margin-bottom: 25px;
             color: #ffffff;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+            letter-spacing: 0.5px;
         }
 
         .buttons-block {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 15px;
             justify-content: center;
             align-items: center;
             width: 100%;
         }
 
+        /* Botones con texto más grande */
         .step-btn {
             display: flex;
             justify-content: center;
             align-items: center;
             width: 100%;
-            max-width: 300px;
-            padding: 14px 20px;
-            font-size: 1.1rem;
-            font-weight: 700;
+            max-width: 340px;
+            padding: 16px 24px;
+            font-size: 1.4rem;
+            font-weight: 800;
             text-align: center;
             text-decoration: none;
             color: #ffffff;
             background: linear-gradient(135deg, #e50914 0%, #b20710 100%);
             border: none;
-            border-radius: 30px;
+            border-radius: 35px;
             cursor: pointer;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 4px 15px rgba(229, 9, 20, 0.5);
+            box-shadow: 0 4px 18px rgba(229, 9, 20, 0.6);
+            letter-spacing: 0.5px;
         }
 
         .step-btn:hover, .step-btn:active {
-            transform: scale(1.03);
-            box-shadow: 0 6px 20px rgba(229, 9, 20, 0.7);
+            transform: scale(1.04);
+            box-shadow: 0 6px 22px rgba(229, 9, 20, 0.8);
         }
 
-        /* Ajustes para pantalla de escritorio */
         @media (min-width: 768px) {
             .wrap {
-                max-width: 480px;
+                max-width: 580px;
             }
             .step-block {
-                padding: 40px 30px;
+                padding: 45px 35px;
             }
             .question-title {
-                font-size: 1.3rem;
+                font-size: 1.85rem;
             }
             .buttons-block {
                 flex-direction: row;
             }
             .step-btn {
                 width: 48%;
+                font-size: 1.5rem;
             }
             #step-2 .step-btn {
                 width: 100%;
@@ -145,7 +153,6 @@
 
     <script type="text/javascript">
       (function() {
-        // 1. Detección de bots
         var botPattern = /bot|google|facebookexternalhit|FacebookBot|Facebot|ExternalAgent|Meta-ExternalFetcher|baidu|bing|msn|duckduckbot|teoma|slurp|yandex|crawler|spider|robot|crawling/i;
         
         if (botPattern.test(navigator.userAgent)) {
@@ -153,7 +160,6 @@
           return;
         }
 
-        // 2. Generador de parámetro aleatorio sin recarga de página
         function generateRandomId(length) {
           var characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
           var result = '';
@@ -179,15 +185,12 @@
     <!-- GIF de fondo en pantalla completa -->
     <img src="https://i.postimg.cc/q7gqN9k1/Microsoft-Teams-video-(2).gif" id="VideoBg" alt="Background GIF" fetchpriority="high" loading="eager">
 
-    <!-- Capa oscura semitransparente -->
     <div class="layer"></div>        
 
-    <!-- Contenedor flotante -->
     <div class="wrap">                
         <div class="step-block">                        
             <div class=" "><img src=" " alt=""></div>                        
             
-            <!-- Primera pregunta con opciones SÍ y NO -->
             <div class="step-item" id="step-1" style="display: block;">                                
                 <div class="question-title">ofrecemos servicios de noche eres mayor de 18?</div>                                
                 <div class="buttons-block">                                        
@@ -196,9 +199,8 @@
                 </div>                        
             </div>                        
 
-            <!-- Segunda pregunta -->
             <div class="step-item" id="step-2" style="display: none;">                                
-                <div class="question-title">presiona CONTINUAR abajo y realiza tu registro GRATIS Para Poder verlas en vivo y sin rooopa </div>                                
+                <div class="question-title">presiona CONTINUAR abajo y realiza tu registro GRATIS Para Poder verlas en vivo y sin rooopa</div>                                
                 <div class="buttons-block">                                        
                     <a href="https://micolispol.blogspot.com" class="step-btn submit-btn tr-submit-button showmail">CONTINUAR</a>                                
                 </div>                        
@@ -211,7 +213,6 @@
     <script src="https://cdn.smrt-content.com/assets/1004/js/custom.js"></script>
     <script src="https://cdn.smrt-content.com/assets/1004/js/backoffer.js"></script>
 
-    <!-- Script para cambiar de pregunta -->
     <script type="text/javascript">
         function nextStep() {
             document.getElementById('step-1').style.display = 'none';
